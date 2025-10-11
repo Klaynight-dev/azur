@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azuria Studio - Développement Roblox</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #fff, #a8edea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .games-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-section {
+            margin: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .team-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .team-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-username {
+            color: #a8edea;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        .links-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .link-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .link-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .support-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .support-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .paypal-button {
+            background: #0070ba;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1.5rem;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .paypal-button:hover {
+            background: #005ea6;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo">Azuria Studio</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')">Accueil</a></li>
+                <li><a href="#" onclick="showPage('team')">Équipe</a></li>
+                <li><a href="#" onclick="showPage('links')">Liens Utils</a></li>
+                <li><a href="#" onclick="showPage('support')">Soutien</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page d'accueil -->
+    <div id="home" class="page active">
+        <div class="container">
+            <div class="hero">
+                <h1>Bienvenue chez Azuria Studio</h1>
+                <p>Créateurs de jeux Roblox immersifs et innovants</p>
+            </div>
+
+            <div class="games-section">
+                <div class="game-card">
+                    <h3>🎮 Azuria RP</h3>
+                    <p>Plongez dans une expérience de roleplay unique sur Roblox avec notre jeu phare Azuria RP.</p>
+                </div>
+                <div class="game-card">
+                    <h3>🚔 PRC RP</h3>
+                    <p>Notre serveur ER:LC offrant une expérience de roleplay réaliste et immersive dans Liberty County.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Équipe -->
+    <div id="team" class="page">
+        <div class="container">
+            <h2 class="section-title">Remerciements à notre équipe</h2>
+
+            <h3 class="section-title" style="font-size: 2rem;">Équipe de Développement Roblox</h3>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="./assets/@fioskho.png" alt="Fioskho" class="team-avatar">
+                    <div class="team-name">Fioskho</div>
+                    <div class="team-username">@fioskho</div>
+                    <div class="team-role">Dev Roblox & Gérant</div>
+                </div>
+                <div class="team-card">
+                    <img src="./assets/@kaizoww_98k.png" alt="Kaizo" class="team-avatar">
+                    <div class="team-name">Kaizo</div>
+                    <div class="team-username">@kaizoww_98k</div>
+                    <div class="team-role">Dev Roblox Expérimenté</div>
+                </div>
+                <div class="team-card">
+                    <img src="./assets/@med2970.png" alt="Schynix" class="team-avatar">
+                    <div class="team-name">Schynix</div>
+                    <div class="team-username">@med2970</div>
+                    <div class="team-role">Créateur d'Azuria Studio & Dev Roblox & Responsable Développeur Roblox</div>
+                </div>
+                <div class="team-card">
+                    <img src="./assets/@xplosion42.png" alt="Xplosion42" class="team-avatar">
+                    <div class="team-name">๖̶ζ͜͡𝓧_𝓹𝓵𝓸𝓼𝓲𝓸𝓷42</div>
+                    <div class="team-username">@xplosion42</div>
+                    <div class="team-role">Directeur d'Azuria Studio & Dev Roblox & Responsable Staff en Chef & Responsable de la Sécurité</div>
+                </div>
+            </div>
+
+            <h3 class="section-title" style="font-size: 2rem;">Équipe de Fondation/Création</h3>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="./assets/@xplosion42.png" alt="Xplosion42" class="team-avatar">
+                    <div class="team-name">๖̶ζ͜͡𝓧_𝓹𝓵𝓸𝓼𝓲𝓸𝓷42</div>
+                    <div class="team-username">@xplosion42</div>
+                    <div class="team-role">Directeur d'Azuria Studio & Dev Roblox & Responsable Staff en Chef & Responsable de la Sécurité</div>
+                </div>
+                <div class="team-card">
+                    <img src="./assets/@med2970.png" alt="Schynix" class="team-avatar">
+                    <div class="team-name">Schynix</div>
+                    <div class="team-username">@med2970</div>
+                    <div class="team-role">Créateur d'Azuria Studio & Dev Roblox & Responsable Développeur Roblox</div>
+                </div>
+                <div class="team-card">
+                    <img src="./assets/@kopkezoidberg.png" alt="Kopkezoidberg" class="team-avatar">
+                    <div class="team-name">Kopkezoidberg</div>
+                    <div class="team-username">@kopkezoidberg</div>
+                    <div class="team-role">Co-Créateur d'Azuria Studio & Responsable Staff en Chef</div>
+                </div>
+            </div>
+
+            <h3 class="section-title" style="font-size: 2rem;">Développeur des Bots Personnalisés</h3>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="./assets/@_novi_7.png" alt="Novi" class="team-avatar">
+                    <div class="team-name">|| Novi - 2.6 ||</div>
+                    <div class="team-username">@_novi_7</div>
+                    <div class="team-role">Dev Bot Discord & Administrateur & Développeur du Site</div>
+                </div>
+            </div>
+
+            <h3 class="section-title" style="font-size: 2rem;">Représentant Légal & Responsable Financier</h3>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="./assets/@Neptune.png" alt="Neptune" class="team-avatar">
+                    <div class="team-name">Neptune</div>
+                    <div class="team-username">@Neptune</div>
+                    <div class="team-role">Représentant Légal d'Azuria Studio, Super Administrateur, Assistant de la Création, Responsable Financier d'Azuria Studio</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Liens Utils -->
+    <div id="links" class="page">
+        <div class="container">
+            <h2 class="section-title">Liens Utiles</h2>
+            <div class="links-section">
+                <a href="https://discord.gg/XRhGSH3SKu" target="_blank" class="link-card">
+                    <h3>💬 Discord Azuria Studio</h3>
+                    <p>Rejoignez notre serveur Discord officiel</p>
+                </a>
+                <a href="https://www.tiktok.com/@azuria.rpfr?_t=ZN-8yzGSQENzwk&_r=1" target="_blank" class="link-card">
+                    <h3>🎵 TikTok</h3>
+                    <p>Suivez-nous sur TikTok pour du contenu exclusif</p>
+                </a>
+                <a href="https://discord.gg/cWP7PMVWE5" target="_blank" class="link-card">
+                    <h3>🚔 Liberty Country RP (PRC RP)</h3>
+                    <p>Serveur lié à Azuria Studio</p>
+                </a>
+                <a href="https://forms.gle/vXkvXdKwunjaEhuAA" target="_blank" class="link-card">
+                    <h3>📋 Recrutement Staff</h3>
+                    <p>Formulaire de candidature pour rejoindre notre équipe</p>
+                </a>
+                <a href="https://forms.gle/2fy42iw86Wn1cDht8" target="_blank" class="link-card">
+                    <h3>✅ Recrutement WL</h3>
+                    <p>Demande de whitelist</p>
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScoI8Rw5qRz0yPdnIEQ7_qTQN9w5YUQCOssgoq1Z0ELeQNpEw/viewform?usp=sharing&ouid=113099215972526347687" target="_blank" class="link-card">
+                    <h3>🎤 Recrutement Animateur</h3>
+                    <p>Devenez animateur sur nos serveurs</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Soutien -->
+    <div id="support" class="page">
+        <div class="container">
+            <h2 class="section-title">Soutenez Azuria Studio</h2>
+            <div class="support-section">
+                <div class="support-card">
+                    <h3>💝 Votre soutien compte</h3>
+                    <p style="margin: 1.5rem 0; line-height: 1.6;">
+                        Azuria Studio grandit grâce à votre soutien. Chaque contribution nous aide à créer des expériences de jeu encore meilleures et à faire grandir notre communauté.
+                    </p>
+                    <p style="opacity: 0.8; margin-bottom: 1rem;">
+                        Vous pouvez nous soutenir via PayPal :
+                    </p>
+                    <a href="https://www.paypal.com/paypalme/neptuneowo" target="_blank" class="paypal-button">
+                        💳 Faire un don via PayPal (@neptuneowo)
+                    </a>
+                    <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">
+                        Tous les dons sont gérés par Neptune, notre représentant légal et responsable financier.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Azuria Studio™ - Tous droits réservés</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
