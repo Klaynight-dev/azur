@@ -251,18 +251,101 @@
             display: block;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         @media (max-width: 768px) {
+            .navbar-content {
+                flex-wrap: wrap;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
             .nav-links {
                 flex-direction: column;
                 gap: 0.5rem;
+                width: 100%;
+                margin-top: 1rem;
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .games-section {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .links-section {
+                grid-template-columns: 1fr;
+            }
+
+            .game-card, .team-card, .link-card {
+                padding: 1.5rem;
+            }
+
+            .support-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .team-role {
+                font-size: 0.85rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .team-avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            .team-name {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -271,7 +354,8 @@
     <nav class="navbar">
         <div class="navbar-content">
             <div class="logo">Azuria Studio</div>
-            <ul class="nav-links">
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#" onclick="showPage('home')">Accueil</a></li>
                 <li><a href="#" onclick="showPage('team')">Équipe</a></li>
                 <li><a href="#" onclick="showPage('links')">Liens Utils</a></li>
@@ -445,6 +529,17 @@
             pages.forEach(page => page.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
             window.scrollTo(0, 0);
+            
+            // Fermer le menu mobile après avoir cliqué
+            const navLinks = document.getElementById('navLinks');
+            if (window.innerWidth <= 768) {
+                navLinks.classList.remove('active');
+            }
+        }
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
         }
     </script>
 </body>
