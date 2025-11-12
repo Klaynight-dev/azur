@@ -1,0 +1,69 @@
+[
+  {
+    "id": "fioskho",
+    "name": "Fioskho",
+    "username": "@fioskho",
+    "role": "Dev Roblox & Gérant",
+    "avatar": "./assets/img/png/@fioskho.png",
+    "group": "Développement Roblox",
+    "networks": [
+      { "name": "Discord", "url": "https://discord.gg/XRhGSH3SKu" }
+    ]
+  },
+  {
+    "id": "kaizo",
+    "name": "Kaizo",
+    "username": "@kaizoww_98k",
+    "role": "Dev Roblox Expérimenté",
+    "avatar": "./assets/img/png/@kaizoww_98k.png",
+    "group": "Développement Roblox",
+    "networks": []
+  },
+  {
+    "id": "schynix",
+    "name": "Schynix",
+    "username": "@med2970",
+    "role": "Créateur d'Azuria Studio & Dev Roblox & Responsable Développeur Roblox",
+    "avatar": "./assets/img/png/@med2970.png",
+    "group": "Développement Roblox",
+    "networks": []
+  },
+  {
+    "id": "xplosion42",
+    "name": "๖̶ζ͜͡𝓧_𝓹𝓵𝓸𝓼𝓲𝓸𝓷42",
+    "username": "@xplosion42",
+    "role": "Directeur d'Azuria Studio & Dev Roblox & Responsable Staff en Chef & Responsable de la Sécurité",
+    "avatar": "./assets/img/png/@xplosion42.png",
+    "group": "Développement Roblox",
+    "networks": []
+  },
+  {
+    "id": "kopkezoidberg",
+    "name": "Kopkezoidberg",
+    "username": "@kopkezoidberg",
+    "role": "Co-Créateur d'Azuria Studio & Responsable Staff en Chef",
+    "avatar": "./assets/img/png/@kopkezoidberg.png",
+    "group": "Fondation/Création",
+    "networks": []
+  },
+  {
+    "id": "novi",
+    "name": "|| Novi - 2.6 ||",
+    "username": "@_novi_7",
+    "role": "Dev Bot Discord & Administrateur & Développeur du Site",
+    "avatar": "./assets/img/png/@_novi_7.png",
+    "group": "Bots",
+    "networks": []
+  },
+  {
+    "id": "neptune",
+    "name": "Neptune",
+    "username": "@Neptune",
+    "role": "Représentant Légal d'Azuria Studio, Super Administrateur, Assistant de la Création, Responsable Financier d'Azuria Studio",
+    "avatar": "./assets/img/png/@neptune.png",
+    "group": "Direction",
+    "networks": [
+      { "name": "Liens", "url": "https://plinkk.fr/neptune" }
+    ]
+  }
+]

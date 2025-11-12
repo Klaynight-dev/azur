@@ -1,0 +1,274 @@
+/* 
+    Ancient CSS styles for the landing page of Azuria
+    By Klaynight (https://klaynight.fr)
+*/
+
+html {
+    height: 100%;
+    /* subtle linear + soft radial accents background */
+    background: linear-gradient(180deg, #06070a 0%, #071029 60%, #051226 100%);
+    background-image: radial-gradient(700px 360px at 8% 8%, rgba(124,92,255,0.06), transparent 18%),
+                      radial-gradient(500px 280px at 92% 85%, rgba(0,229,184,0.04), transparent 16%),
+                      linear-gradient(180deg, #06070a 0%, #071029 60%, #051226 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    /* let html background show through */
+    background: transparent;
+    color: #e6eef6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 32px
+}
+
+/* NAV */
+nav.topbar {
+    backdrop-filter: blur(8px);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.topbar .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 20px
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.brand img {
+    width: 44px;
+    height: 44px
+}
+
+.brand .title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.4px
+}
+
+.nav-links {
+    display: flex;
+    gap: 12px;
+    align-items: center
+}
+
+.nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all .18s
+}
+
+.nav-links a:hover {
+    background: var(--glass);
+    color: #fff;
+    transform: translateY(-3px)
+}
+
+.cta {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: #051226;
+    font-weight: 700;
+    text-decoration: none
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 56px 0
+}
+
+.hero-left {
+    flex: 1
+}
+
+.eyebrow {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 700;
+    color: #02111a;
+    font-size: 0.8rem
+}
+
+.hero h1 {
+    font-size: 2.6rem;
+    margin-top: 18px;
+    line-height: 1.04
+}
+
+.hero p {
+    color: rgba(230, 238, 246, 0.85);
+    margin-top: 12px;
+    font-size: 1.05rem
+}
+
+.hero-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 28px
+}
+
+.card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 6px 30px rgba(3, 7, 18, 0.6)
+}
+
+.hero-right {
+    width: 420px;
+    min-width: 260px
+}
+
+.dashboard-mock {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.03)
+}
+
+/* TEAM */
+.section {
+    padding: 40px 0
+}
+
+.section .heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px
+}
+
+.section h2 {
+    font-size: 1.6rem
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 18px
+}
+
+.member {
+    background: var(--glass);
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    text-align: center
+}
+
+.member img {
+    width: 92px;
+    height: 92px;
+    border-radius: 999px;
+    border: 3px solid rgba(255, 255, 255, 0.06);
+    object-fit: cover
+}
+
+.member .name {
+    margin-top: 10px;
+    font-weight: 700
+}
+
+.member .role {
+    margin-top: 6px;
+    color: rgba(230, 238, 246, 0.8);
+    font-size: 0.92rem
+}
+
+/* LINKS */
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 18px
+}
+
+.link-card {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    text-decoration: none;
+    color: var(--muted)
+}
+
+.link-card img {
+    width: 36px;
+    height: 36px
+}
+
+footer {
+    margin-top: auto;
+    padding: 28px 0;
+    color: rgba(230, 238, 246, 0.6);
+    text-align: center;
+    font-size: 0.95rem
+}
+
+/* responsive */
+@media (max-width:900px) {
+    .hero {
+        flex-direction: column
+    }
+
+    .hero-right {
+        width: 100%
+    }
+
+    .cards {
+        grid-template-columns: 1fr
+    }
+}
+
+@media (max-width:560px) {
+    .nav-links {
+        display: none
+    }
+
+    .brand .title {
+        font-size: 0.98rem
+    }
+}
