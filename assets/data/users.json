@@ -56,14 +56,15 @@
     "networks": []
   },
   {
-    "id": "neptune",
-    "name": "Neptune",
-    "username": "@Neptune",
-    "role": "Représentant Légal d'Azuria Studio, Super Administrateur, Assistant de la Création, Responsable Financier d'Azuria Studio",
-    "avatar": "./assets/img/png/@neptune.png",
+    "id": "klaynight",
+    "name": "Klaynight",
+    "username": "@Klaynight",
+    "role": "Responsable des environements web & Infrastructure web",
+    "avatar": "./assets/img/png/@Klaynight.png",
     "group": "Direction",
     "networks": [
-      { "name": "Liens", "url": "https://plinkk.fr/neptune" }
+      { "name": "Liens", "url": "https://plinkk.fr/klaynight" },
+      { "name": "PortFolio", "url": "https://klaynight.fr" }
     ]
   }
 ]
